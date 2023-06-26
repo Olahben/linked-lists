@@ -20,9 +20,31 @@ function linkedList() {
     console.log(newNode);
   }
 
-  return { head, appendNode, prependNode };
+  function size() {
+    console.log(head.next);
+    let nodes = 0;
+    function countNodes(obj) {
+      if (obj === null) return;
+      console.log(obj);
+      if (obj.data) {
+        nodes += 1;
+      }
+      countNodes(obj.next);
+    }
+    countNodes(head.next);
+    console.log(nodes);
+    return nodes;
+  }
+
+  return {
+    head,
+    appendNode,
+    prependNode,
+    size,
+  };
 }
 
 const list = linkedList();
 list.appendNode("data");
 list.prependNode("data2");
+list.size();
