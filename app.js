@@ -13,17 +13,16 @@ function linkedList() {
     head.next = newNode;
   }
 
-  return { appendNode };
+  function prependNode(value) {
+    console.log(`Head.next: ${head.next}`);
+    const newNode = node(value, head.next);
+    head.next = newNode;
+    console.log(newNode);
+  }
+
+  return { head, appendNode, prependNode };
 }
-console.log(linkedList().appendNode("data"));
-/*
-Linkedlist:
-Represents the full list
 
-Contains functions that operates on the linkedList
-
-node:
-Represents a node in the list
-has two properties, data, and next. By default they are null
-
-*/
+const list = linkedList();
+list.appendNode("data");
+list.prependNode("data2");
