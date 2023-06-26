@@ -1,7 +1,21 @@
-function linkedList() {}
+function node(data = null, next = null) {
+  console.log(data, next);
+  return { data, next };
+}
 
-function node(data = null, next = null) {}
+function linkedList() {
+  const head = {
+    next: null,
+  };
 
+  function appendNode(value) {
+    const newNode = node(value);
+    head.next = newNode;
+  }
+
+  return { appendNode };
+}
+console.log(linkedList().appendNode("data"));
 /*
 Linkedlist:
 Represents the full list
