@@ -1,5 +1,5 @@
 function node(data = null, next = null) {
-  console.log(data, next);
+  // console.log(data, next);
   return { data, next };
 }
 
@@ -14,14 +14,13 @@ function linkedList() {
   }
 
   function prependNode(value) {
-    console.log(`Head.next: ${head.next}`);
+    // console.log(`Head.next: ${head.next}`);
     const newNode = node(value, head.next);
     head.next = newNode;
-    console.log(newNode);
   }
 
   function size() {
-    console.log(head.next);
+    // console.log(head.next);
     let nodes = 0;
     function countNodes(obj) {
       if (obj === null) return;
@@ -32,8 +31,13 @@ function linkedList() {
       countNodes(obj.next);
     }
     countNodes(head.next);
-    console.log(nodes);
+    // console.log(nodes);
     return nodes;
+  }
+
+  function headNode() {
+    // console.log(head.next.data);
+    return head.next.data;
   }
 
   return {
@@ -41,10 +45,12 @@ function linkedList() {
     appendNode,
     prependNode,
     size,
+    headNode,
   };
 }
 
 const list = linkedList();
-list.appendNode("data");
-list.prependNode("data2");
-list.size();
+console.log(list.appendNode("data"));
+console.log(list.prependNode("data2"));
+console.log(list.size());
+console.log(list.headNode());
