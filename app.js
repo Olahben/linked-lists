@@ -24,7 +24,7 @@ function linkedList() {
     let nodes = 0;
     function countNodes(obj) {
       if (obj === null) return;
-      console.log(obj);
+      // console.log(obj);
       if (obj.data) {
         nodes += 1;
       }
@@ -37,7 +37,7 @@ function linkedList() {
 
   function headNode() {
     // console.log(head.next.data);
-    return head.next.data;
+    return head.next;
   }
 
   function tailNode() {
@@ -61,6 +61,8 @@ function linkedList() {
 const list = linkedList();
 list.appendNode("data");
 list.prependNode("data2");
+list.prependNode("data3");
+list.prependNode("data4");
 console.log(list.size());
 console.log(list.headNode());
 console.log(list.tailNode());
