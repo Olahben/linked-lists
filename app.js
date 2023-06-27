@@ -40,17 +40,27 @@ function linkedList() {
     return head.next.data;
   }
 
+  function tailNode() {
+    function getLastNode(obj) {
+      if (obj.next === null) return obj;
+      return getLastNode(obj.next);
+    }
+    return getLastNode(head.next);
+  }
+
   return {
     head,
     appendNode,
     prependNode,
     size,
     headNode,
+    tailNode,
   };
 }
 
 const list = linkedList();
-console.log(list.appendNode("data"));
-console.log(list.prependNode("data2"));
+list.appendNode("data");
+list.prependNode("data2");
 console.log(list.size());
 console.log(list.headNode());
+console.log(list.tailNode());
