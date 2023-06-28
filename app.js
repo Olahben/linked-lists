@@ -66,6 +66,12 @@ function linkedList() {
     return search(head.next);
   }
 
+  function pop() {
+    const listSize = size();
+    const penultimateNode = at(listSize - 2);
+    penultimateNode.next = null;
+  }
+
   return {
     head,
     appendNode,
@@ -74,6 +80,7 @@ function linkedList() {
     headNode,
     tailNode,
     at,
+    pop,
   };
 }
 
@@ -86,5 +93,6 @@ list.appendNode("data1");
 console.log(list.size());
 console.log(list.headNode());
 console.log(list.tailNode());
-console.log(list.at(4));
-// console.log(list.head.next);
+console.log(list.at(2));
+list.pop();
+console.log(list.head.next.next.next);
