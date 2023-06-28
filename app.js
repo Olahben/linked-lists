@@ -54,6 +54,18 @@ function linkedList() {
     return head.next;
   }
 
+  function at(index) {
+    let count = -1;
+    function search(obj) {
+      if (count + 1 === index) {
+        return obj;
+      }
+      if (obj.data) count += 1;
+      return search(obj.next);
+    }
+    return search(head.next);
+  }
+
   return {
     head,
     appendNode,
@@ -61,6 +73,7 @@ function linkedList() {
     size,
     headNode,
     tailNode,
+    at,
   };
 }
 
@@ -73,4 +86,5 @@ list.appendNode("data1");
 console.log(list.size());
 console.log(list.headNode());
 console.log(list.tailNode());
-console.log(list.head.next);
+console.log(list.at(4));
+// console.log(list.head.next);
