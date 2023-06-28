@@ -92,6 +92,16 @@ function linkedList() {
     return searchForValue(head.next);
   }
 
+  function toString() {
+    let string = "";
+    function appendValues(obj) {
+      if (obj.data) string += `${obj.data} ,`;
+      if (obj.next === null) return string;
+      return appendValues(obj.next);
+    }
+    return appendValues(head.next);
+  }
+
   return {
     head,
     appendNode,
@@ -103,6 +113,7 @@ function linkedList() {
     pop,
     contains,
     find,
+    toString,
   };
 }
 
@@ -119,4 +130,4 @@ console.log(list.at(2));
 list.pop();
 console.log(list.contains("data3"));
 console.log(list.find("data2"));
-console.log(list.head.next.next.next);
+console.log(list.toString());
