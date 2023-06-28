@@ -81,6 +81,17 @@ function linkedList() {
     return searchForValue(head.next);
   }
 
+  function find(value) {
+    let count = -1;
+    function searchForValue(obj) {
+      if (obj.data) count += 1;
+      if (obj.data === value) return count;
+      if (obj.next === null) return null;
+      return searchForValue(obj.next);
+    }
+    return searchForValue(head.next);
+  }
+
   return {
     head,
     appendNode,
@@ -91,6 +102,7 @@ function linkedList() {
     at,
     pop,
     contains,
+    find,
   };
 }
 
@@ -106,4 +118,5 @@ console.log(list.tailNode());
 console.log(list.at(2));
 list.pop();
 console.log(list.contains("data3"));
+console.log(list.find("data2"));
 console.log(list.head.next.next.next);
